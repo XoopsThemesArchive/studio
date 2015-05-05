@@ -1,0 +1,125 @@
+<{php}>
+$ua = $_SERVER['HTTP_USER_AGENT'];
+if ((ereg("Windows",$ua) > 0) && (ereg("MSIE",$ua) > 0)) {
+if (ereg("MSIE 6.",$ua) > 0) {
+echo '';
+}
+} else {
+echo '<?xml version="1.0" encoding="'._CHARSET.'"?>';
+echo "\n";
+}
+<{/php}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>"><head>
+<meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+<meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+<meta name="robots" content="<{$xoops_meta_robots}>" />
+<meta name="keywords" content="<{$xoops_meta_keywords}>" />
+<meta name="description" content="<{$xoops_meta_description}>" />
+<meta name="rating" content="<{$xoops_meta_rating}>" />
+<meta name="author" content="<{$xoops_meta_author}>" />
+<meta name="copyright" content="<{$xoops_meta_copyright}>" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<title><{$xoops_pagetitle}> - <{$xoops_sitename}></title>
+<link href="<{$xoops_url}>/favicon.ico" rel="SHORTCUT ICON" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_url}>/xoops.css" />
+<link rel="stylesheet" type="text/css" media="all" href="<{$xoops_themecss}>" />
+<link rel="stylesheet" type="text/css" media="print" href="<{$xoops_imageurl}>css/print.css" />
+<!-- RMV: added module header -->
+<{$xoops_module_header}>
+<{$xoops_block_header}>
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script type="text/javascript">
+<!--
+<{$xoops_js}>
+//-->
+</script>
+</head>
+<body class="usual">
+<div class="page">
+  <!--header-->
+  <div id="header">
+	  <div id="header_sub_menu">
+			<div id="user_menu_block"><{if !$xoops_isuser}>
+				<form style="margin: 0px;" action="<{$xoops_url}>/user.php" method="post">
+			ID : <input tabindex="2" type="text" name="uname" value="<{$block.unamevalue}>" maxlength="25" style=" width:60px; height:12pt; padding:0px;" />
+			Pass : <input tabindex="3" type="password" name="pass" maxlength="32" style=" width:60px; height:12pt; padding:0px;" value="" />
+			<input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" />
+					<input type="hidden" name="op" value="login" /><input tabindex="4" type="submit" value="Login" id="login_btn" accesskey="l" />
+			</form>
+				<{else}>
+				<a href="<{$xoops_url}>/user.php">My Account</a> |
+				<a href="<{$xoops_url}>/notifications.php">Notification</a> |
+				<a href="<{$xoops_url}>/viewpmsg.php">In box</a> |
+				<{if $xoops_isadmin}><a href="<{$xoops_url}>/admin.php">Site administration</a> |<{/if}>
+				<a href="<{$xoops_url}>/user.php?op=logout">Logout</a>
+				<{/if}>
+			</div>
+		</div>
+	  <div id="logo">
+	  <div id="header_discription">
+		<p class='site-name'><a href="<{$xoops_url}>" title="<{$xoops_sitename}>"><{$xoops_sitename}></a></p>
+		<p class='site-slogan'><{if $xoops_dirname}><{$xoops_modulename}><{else}><{$xoops_slogan}><{/if}></p>
+	  </div></div>
+  </div>
+  <!--header end-->
+	
+	<{* Content area start *}>
+		<div id="<{if $xoops_showlblock == 1 && $xoops_showrblock == 1 }>col3<{elseif $xoops_showlblock == 1}>col2<{elseif $xoops_showrblock == 1}>col2<{else}>col1<{/if}>">
+
+		<{if $xoops_showlblock == 1}>
+		<div class="leftcolumn">
+		   <{foreach item=block from=$xoops_lblocks}>
+			 <div class="block_left">
+			  <{if ! $block.title|strstr:"none"}><div class="blockTitle"><{$block.title}></div><{/if}>
+			  <div class="blockContent"><{$block.content}></div>
+			 </div>
+		   <{/foreach}>
+		</div>
+		<{/if}>
+
+		<div class="centercolumn">
+			<div class="c_round_ml">
+			<div class="c_round_mr">
+			<div class="c_round_tc">
+			<div class="c_round_tl">
+			<div class="c_round_tr">
+			<div class="c_round_bc">
+			<div class="c_round_bl">
+			<div class="c_round_br">
+			<div class="cc_base">
+
+			<{include file="$xoops_rootpath/themes/$xoops_theme/blockcenter.html"}>
+		
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+		
+		</div>
+
+
+		  <{if $xoops_showrblock == 1}>
+			  <div class="rightcolumn">
+				<{foreach item=block from=$xoops_rblocks}>
+				 <div class="block_right">
+				  <{if ! $block.title|strstr:"none"}><div class="blockTitle"><{$block.title}></div><{/if}>
+				  <div class="blockContent"><{$block.content}></div>
+				 </div>
+				<{/foreach}>
+			 </div>
+		  <{/if}>
+
+		 </div>
+		<{* Content area end *}>
+
+
+</div>
+<div id="footer"><{$xoops_footer}> , theme design by <a href="http://2bcool.net">BCOOL</a></div>
+</body>
+</html>

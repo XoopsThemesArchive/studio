@@ -1,0 +1,39 @@
+@charset "euc-jp";
+
+/* ------------ background ------------ */
+.usual {
+	background-color: #FFF;
+	background-image: url();
+	}
+div.page {
+	width: auto;
+	}
+
+/* ------------ Header elements ------------ */
+
+#header {
+	display:none;
+}
+
+/* ------------ Content Area ------------ */
+#col3 .centercolumn, #col2 .centercolumn, #col1 .centercolumn {
+	float:none;
+	width: 100%;
+}
+#page_top {
+	display:none;
+}
+.leftcolumn {
+	display:none;
+}
+.rightcolumn {
+	display:none;
+}
+#footer {
+	display:none;
+}
+
+/* ------------ center column round ------------ */
+.c_round_ml, .c_round_mr, .c_round_tl, .c_round_tr, .c_round_tc, .c_round_bc, .c_round_bl, .c_round_br {
+	background: url();
+}
